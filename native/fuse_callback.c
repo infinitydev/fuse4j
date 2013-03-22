@@ -458,6 +458,32 @@ static int javafs_truncate(const char *path, off_t size)
    return -jerrno;
 }
 
+static int javafs_ftruncate(const char *path, off_t size, struct fuse_file_info *ffi)
+{
+    JNIEnv *env = get_env();
+    jobject jPath = NULL;
+    jint jerrno = 0;
+
+   while (1){
+
+      jPath = (*env)->NewDirectByteBuffer(env, (void *)path, (jlong)strlen(path));
+      if (exception_check_jerrno(env, &jerrno)) break;
+
+      jerrno = (*env)->CallIntMethod(env, fuseFS, FuseFS->method.ftruncate__Ljava_nio_ByteBuffer_Ljava_lang_Object_J, jPath, read_file_handle(ffi), (jlong)size);
+      exception_check_jerrno(env, &jerrno);
+      break;
+   }
+
+    
+    // cleanup
+    
+    if (jPath != NULL) (*env)->DeleteLocalRef(env, jPath);
+    
+    release_env(env);
+    
+    return -jerrno;
+}
+
 
 static int javafs_utime(const char *path, struct utimbuf *buf)
 {
@@ -993,6 +1019,6 @@ struct fuse_operations javafs_oper = {
    destroy:     javafs_destroy,
    access:      NULL,
    create:      NULL,
-   ftruncate:   NULL,
+   ftruncate:   javafs_ftruncate,
    fgetattr:    NULL
 };

@@ -422,6 +422,7 @@ typedef struct _jclass_fuse_FuseFS
       jmethodID statfs__Lfuse_FuseStatfsSetter_;
       jmethodID symlink__Ljava_nio_ByteBuffer_Ljava_nio_ByteBuffer_;
       jmethodID truncate__Ljava_nio_ByteBuffer_J;
+      jmethodID ftruncate__Ljava_nio_ByteBuffer_Ljava_lang_Object_J;
       jmethodID unlink__Ljava_nio_ByteBuffer_;
       jmethodID utime__Ljava_nio_ByteBuffer_II;
       jmethodID write__Ljava_nio_ByteBuffer_Ljava_lang_Object_ZLjava_nio_ByteBuffer_J;

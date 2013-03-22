@@ -311,6 +311,25 @@ public class StaticFilesystem implements Filesystem1
       throw new FuseException("Not a File").initErrno(FuseException.EINVAL);
    }
 
+   public void ftruncate(String path, Object fh, long size) throws FuseException
+   {
+	   ResolveResult rr = resolvePath(path);
+	   
+	   if (rr.node instanceof MountpointNode)
+	   {
+		   ((MountpointNode) rr.node).getFilesystem().ftruncate(rr.path, fh, size);
+		   return;
+	   }
+	   
+	   if (rr.node instanceof FileNode)
+	   {
+		   ((FileNode) rr.node).truncate(size);
+		   return;
+	   }
+	   
+	   throw new FuseException("Not a File").initErrno(FuseException.EINVAL);
+   }
+
    public void unlink(String path) throws FuseException
    {
       ResolveResult rr = resolvePath(path);

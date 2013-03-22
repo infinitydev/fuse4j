@@ -238,6 +238,10 @@ public class FakeFilesystem implements Filesystem3, XattrSupport, LifecycleSuppo
         return Errno.EROFS;
     }
 
+    public int ftruncate(String path, Object fh, long size) throws FuseException {
+        return Errno.EROFS;
+    }
+
     public int unlink(String path) throws FuseException {
         return Errno.EROFS;
     }

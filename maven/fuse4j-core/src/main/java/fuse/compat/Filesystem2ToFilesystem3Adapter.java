@@ -184,6 +184,14 @@ public class Filesystem2ToFilesystem3Adapter implements Filesystem3
       return 0;
    }
 
+
+    public int ftruncate(String path, Object fh, long size) throws FuseException
+    {
+        fs2.ftruncate(path, fh, size);
+
+        return 0;
+    }
+
    public int unlink(String path) throws FuseException
    {
       fs2.unlink(path);
