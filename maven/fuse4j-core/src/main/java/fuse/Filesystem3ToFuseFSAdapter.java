@@ -288,6 +288,21 @@ public class Filesystem3ToFuseFSAdapter implements FuseFS {
         }
     }
 
+    public int ftruncate(ByteBuffer path, Object fh, long size) {
+        String pathStr = cs.decode(path).toString();
+
+        if (log != null && log.isDebugEnabled()) {
+            log.debug("ftruncate: path=" + pathStr + "fh=" + fh + ", size=" + size);
+        }
+
+        try {
+            return handleErrno(fs3.ftruncate(pathStr, fh, size));
+        }
+        catch(Exception e) {
+            return handleException(e);
+        }
+    }
+
 
     public int utime(ByteBuffer path, int atime, int mtime) {
         String pathStr = cs.decode(path).toString();

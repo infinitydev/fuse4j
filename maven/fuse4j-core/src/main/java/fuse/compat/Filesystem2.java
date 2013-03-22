@@ -77,6 +77,8 @@ public interface Filesystem2 extends FilesystemConstants
 
    public void truncate(String path, long size) throws FuseException;
 
+   public void ftruncate(String path, Object fh, long size) throws FuseException;
+
    public void utime(String path, int atime, int mtime) throws FuseException;
 
    public FuseStatfs statfs() throws FuseException;

@@ -95,6 +95,11 @@ public class Filesystem1ToFilesystem2Adapter implements Filesystem2
       fs1.truncate(path, size);
    }
 
+   public void ftruncate(String path, Object fh, long size) throws FuseException
+   {
+        fs1.ftruncate(path, fh, size);
+   }
+
    public void utime(String path, int atime, int mtime) throws FuseException
    {
       fs1.utime(path, atime, mtime);

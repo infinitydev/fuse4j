@@ -48,6 +48,8 @@ public interface FuseFS extends FilesystemConstants {
 
     public int truncate(ByteBuffer path, long size);
 
+    public int ftruncate(ByteBuffer path, Object fh, long size);
+
     public int utime(ByteBuffer path, int atime, int mtime);
 
     public int statfs(FuseStatfsSetter statfsSetter);

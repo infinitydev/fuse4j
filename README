@@ -1,3 +1,7 @@
+Marc 22th 2013
+=====
+Added ftruncate function to fuse operation. ( Imad Saine )
+
 November 25th 2011
 =====
 Switching to Fuse4X instead of MacFuse

@@ -199,6 +199,11 @@ public class ZipFilesystem implements Filesystem1
       throw new FuseException("Read Only").initErrno(FuseException.EACCES);
    }
 
+   public void ftruncate(String path, Object fh, long size) throws FuseException
+   {
+       throw new FuseException("Read Only").initErrno(FuseException.EACCES);
+   }
+
    public void unlink(String path) throws FuseException
    {
       throw new FuseException("Read Only").initErrno(FuseException.EACCES);
