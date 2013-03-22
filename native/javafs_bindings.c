@@ -720,6 +720,8 @@ jclass_fuse_FuseFS *alloc_jclass_fuse_FuseFS(JNIEnv *env)
       if ((*env)->ExceptionCheck(env)) break;
       fuse_FuseFS->method.truncate__Ljava_nio_ByteBuffer_J = (*env)->GetMethodID(env, fuse_FuseFS->class, "truncate", "(Ljava/nio/ByteBuffer;J)I");
       if ((*env)->ExceptionCheck(env)) break;
+      fuse_FuseFS->method.ftruncate__Ljava_nio_ByteBuffer_Ljava_lang_Object_J = (*env)->GetMethodID(env, fuse_FuseFS->class, "ftruncate", "(Ljava/nio/ByteBuffer;Ljava/lang/Object;J)I"); 
+      if ((*env)->ExceptionCheck(env)) break;
       fuse_FuseFS->method.unlink__Ljava_nio_ByteBuffer_ = (*env)->GetMethodID(env, fuse_FuseFS->class, "unlink", "(Ljava/nio/ByteBuffer;)I");
       if ((*env)->ExceptionCheck(env)) break;
       fuse_FuseFS->method.utime__Ljava_nio_ByteBuffer_II = (*env)->GetMethodID(env, fuse_FuseFS->class, "utime", "(Ljava/nio/ByteBuffer;II)I");
