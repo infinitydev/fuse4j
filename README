@@ -30,6 +30,8 @@ cd maven
 mvn install
 
 
+Make sure to have the development package of libfuse installed
+(e.g. libfuse-dev on Debian) before building the native code.
 The native executable can be built by:
 
 cd native
