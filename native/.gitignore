@@ -1,1 +1,3 @@
 *.o
+javafs
+libjavafs.so
