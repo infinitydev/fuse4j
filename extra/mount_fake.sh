@@ -1,13 +1,13 @@
 #!/bin/sh
 
-#JAVA_HOME=  -- YOU MUST SET JAVA_HOME --
+JAVA_HOME=/usr/lib/jvm/java-6-openjdk
 
 # This script uses the native (executable) launcher which works in either the foreground or forked into the background.
 
 PROJECT_NAME=fuse4j
 CWD=`pwd`
 
-FUSE_HOME=/usr/local
+FUSE_HOME=/usr
 MOUNT_POINT=${CWD}/fake
 FS_CLASS=fuse/FakeFilesystem
 VERSION=2.4.0.0-SNAPSHOT
