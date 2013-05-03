@@ -15,6 +15,7 @@
         <module>fuse4j-fakefs</module>
         <module>fuse4j-staticfs</module>
         <module>fuse4j-zipfs</module>
+        <module>fuse4j-reversecryptofs</module>
         <module>capi-generator</module>
     </modules>
 
@@ -33,8 +34,8 @@
                 <plugin>
                     <artifactId>maven-compiler-plugin</artifactId>
                     <configuration>
-                        <source>1.5</source>
-                        <target>1.5</target>
+                        <source>1.6</source>
+                        <target>1.6</target>
                     </configuration>
                 </plugin>
                 <plugin>
